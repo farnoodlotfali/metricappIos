@@ -1,0 +1,111 @@
+import {useNavigation, useRoute} from '@react-navigation/core';
+import React from 'react';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  PermissionsAndroid,
+  Platform,
+} from 'react-native';
+import {Button} from 'react-native-paper';
+import CameraRoll from '@react-native-community/cameraroll';
+const StepOneScreen = () => {
+  const route = useRoute();
+  const navigation = useNavigation();
+
+  const hasAndroidPermission = async () => {
+    const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
+
+    const hasPermission = await PermissionsAndroid.check(permission);
+    // console.log(hasPermission);
+    if (hasPermission) {
+      return true;
+    }
+
+    try {
+      const status = await PermissionsAndroid.request(permission);
+      return status === 'granted';
+    } catch (error) {}
+  };
+
+  const savePicture = async () => {
+    if (Platform.OS === 'android' && !(await hasAndroidPermission())) {
+      return;
+    }
+
+    CameraRoll.save(route.params.uri, {type: 'photo'});
+  };
+
+  return (
+    <>
+      <View style={styles.container}>
+        <Text
+          style={{
+            fontSize: 20,
+            textTransform: 'uppercase',
+          }}>
+          STEP ONE
+        </Text>
+      </View>
+      <View style={styles.imageView}>
+        {route?.params?.uri ? (
+          <Image style={styles.image} source={{uri: route.params.uri}} />
+        ) : (
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              flex: 0.1,
+            }}>
+            <Text
+              style={{textAlign: 'center', fontSize: 16, fontWeight: '600'}}>
+              First you must take picture
+            </Text>
+          </View>
+        )}
+        <TouchableOpacity>
+          <Button
+            mode="outlined"
+            color="white"
+            icon="camera"
+            onPress={() =>
+              route?.params?.uri ? savePicture() : navigation.navigate('camera')
+            }
+            style={styles.submitBtn}>
+            {route?.params?.uri ? ' Submit' : 'Take a Selfie'}
+          </Button>
+        </TouchableOpacity>
+      </View>
+    </>
+  );
+};
+
+export default StepOneScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    position: 'relative',
+    top: 0,
+    backgroundColor: 'lightgray',
+    right: 0,
+    left: 0,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  imageView: {flex: 1, alignItems: 'center', justifyContent: 'space-evenly'},
+  image: {
+    height: 300,
+    width: 250,
+    borderRadius: 10,
+  },
+  submitBtn: {
+    backgroundColor: '#84AAFF',
+    borderRadius: 20,
+    paddingHorizontal: 40,
+    paddingVertical: 3,
+  },
+});
