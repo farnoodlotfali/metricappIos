@@ -46,7 +46,7 @@ const TutorialScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Image source={images[current].uri} style={styles.image} />
+      <Image source={images?.[current]?.uri} style={styles.image} />
       <View style={styles.descView}>
         <Text style={styles.desc}> {images[current].desc}</Text>
       </View>

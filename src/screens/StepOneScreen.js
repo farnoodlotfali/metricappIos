@@ -8,13 +8,15 @@ import {
   View,
   PermissionsAndroid,
   Platform,
+  ScrollView,
 } from 'react-native';
 import {Button} from 'react-native-paper';
 import CameraRoll from '@react-native-community/cameraroll';
+import axios from 'axios';
 const StepOneScreen = () => {
   const route = useRoute();
   const navigation = useNavigation();
-
+  // console.log(route.params.face);
   const hasAndroidPermission = async () => {
     const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
 
@@ -31,11 +33,15 @@ const StepOneScreen = () => {
   };
 
   const savePicture = async () => {
-    if (Platform.OS === 'android' && !(await hasAndroidPermission())) {
-      return;
-    }
+    try {
+      if (Platform.OS === 'android' && !(await hasAndroidPermission())) {
+        return;
+      }
 
-    CameraRoll.save(route.params.uri, {type: 'photo'});
+      await CameraRoll.save(route?.params?.uri, {type: 'photo'});
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -65,6 +71,13 @@ const StepOneScreen = () => {
               First you must take picture
             </Text>
           </View>
+        )}
+        {route.params.face ? (
+          <ScrollView>
+            <Text>face: {route.params.face}</Text>
+          </ScrollView>
+        ) : (
+          <Text>no face detected</Text>
         )}
         <TouchableOpacity>
           <Button

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "887923247785",
+    "project_id": "mectricapp",
+    "storage_bucket": "mectricapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887923247785:android:dfe2da59feef30bc4537b8",
+        "android_client_info": {
+          "package_name": "com.mectricapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "887923247785-m61hm6jlivm6ie59g8oq827bd0kbpfta.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo0q5MbwNxKJvCo4pxB4yCiLp-8_G9Y20"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "887923247785-m61hm6jlivm6ie59g8oq827bd0kbpfta.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
