@@ -8,6 +8,8 @@ import CameraScreen from './src/screens/CameraScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import StepOneScreen from './src/screens/StepOneScreen';
 import TutorialScreen from './src/screens/TutorialScreen';
+// import {LogBox} from 'react-native';
+// LogBox.ignoreLogs(['Reanimated 2']);
 
 const App = () => {
   const Drawer = createDrawerNavigator();

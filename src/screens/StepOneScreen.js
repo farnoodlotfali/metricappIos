@@ -72,9 +72,9 @@ const StepOneScreen = () => {
             </Text>
           </View>
         )}
-        {route.params.face ? (
+        {route?.params?.face ? (
           <ScrollView>
-            <Text>face: {route.params.face}</Text>
+            <Text>face: {route?.params?.face}</Text>
           </ScrollView>
         ) : (
           <Text>no face detected</Text>

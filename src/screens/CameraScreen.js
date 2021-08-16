@@ -71,6 +71,8 @@ const CameraScreen = ({navigation}) => {
             // console.log(2);
             // console.log('right:', face.faces[0]?.rightEyePosition);
             // console.log('left:', face.faces[0]?.leftEyePosition);
+          } else {
+            setFaceDetect(null);
           }
         }}
         onFaceDetectionError={() => console.log(error)}
