@@ -21,7 +21,7 @@ const CameraScreen = ({navigation}) => {
     if (cameraRef) {
       const options = {quality: 0.6, base64: true, mirrorImage: true};
       const data = await cameraRef.current.takePictureAsync(options);
-      //   console.log(data.uri);
+     //console.log(data.uri);
       navigation.navigate('step-one', {uri: data.uri, face: FaceDetect});
     }
     setIsFaceDetected(false);
@@ -45,7 +45,7 @@ const CameraScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <RNCamera
+       <RNCamera
         ref={cameraRef}
         style={styles.preview}
         type={camType}
@@ -56,14 +56,15 @@ const CameraScreen = ({navigation}) => {
           buttonPositive: 'Ok',
           buttonNegative: 'Cancel',
         }}
-        faceDetectionMode={RNCamera.Constants.FaceDetection.Mode.fast}
+  
+         faceDetectionMode={RNCamera.Constants.FaceDetection.Mode.fast}
         faceDetectionClassifications={
           RNCamera.Constants.FaceDetection.Classifications.all
         }
         faceDetectionLandmarks={RNCamera.Constants.FaceDetection.Landmarks.all}
         onFacesDetected={face => {
-          // console.log(22);
-          // console.log(face);
+          console.log(22);
+          console.log(face);
 
           if (isFaceDetected && face.faces.length !== 0) {
             setFaceDetect(JSON.stringify(face.faces[0]));
@@ -76,13 +77,6 @@ const CameraScreen = ({navigation}) => {
           }
         }}
         onFaceDetectionError={() => console.log(error)}
-        // captureAudio={false}
-        // androidRecordAudioPermissionOptions={{
-        //   title: 'Permission to use audio recording',
-        //   message: 'We need your permission to use your audio',
-        //   buttonPositive: 'Ok',
-        //   buttonNegative: 'Cancel',
-        // }}
         onGoogleVisionBarcodesDetected={({barcodes}) => {
           console.log(barcodes);
         }}>

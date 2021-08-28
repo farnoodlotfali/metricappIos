@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>887923247785-bip3t4iarbpaa063f7mdkhhcukofts9b.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.887923247785-bip3t4iarbpaa063f7mdkhhcukofts9b</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAFeFMpBhuB21osysUdptGo6TyJy0XCmp0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>887923247785</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>metricapp</string>
+	<key>PROJECT_ID</key>
+	<string>mectricapp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mectricapp.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:887923247785:ios:0a6df8e5d1c4653a4537b8</string>
+</dict>
+</plist>
